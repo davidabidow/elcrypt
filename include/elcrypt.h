@@ -5,7 +5,7 @@
 ** Login   <tran_0@epitech.net>
 ** 
 ** Started on  Fri Mar 13 21:05:54 2015 David Tran
-** Last update Fri Mar 13 21:29:11 2015 David Tran
+** Last update Fri Mar 13 21:49:02 2015 David Tran
 */
 
 #ifndef ELCRYPT_H_
@@ -19,8 +19,16 @@
 typedef union		u_key
 {
   unsigned long int	key;
-  char			c_key[64];
-  
+  unsigned char		c_key[64];
+  unsigned int		i_key[16];
 }			t_key;
+
+typedef struct		s_crypt
+{
+  char			crypt;
+  int			fdin;
+  int			fdout;
+  t_key			key;
+}			t_crypt;
 
 #endif /* !ELCRYPT_H_ */
