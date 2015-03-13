@@ -1,9 +1,9 @@
 /*
 ** elcrypt.h for elcrypt in /home/tran_0/rendu/elcrypt
-** 
+**
 ** Made by David Tran
 ** Login   <tran_0@epitech.net>
-** 
+**
 ** Started on  Fri Mar 13 21:05:54 2015 David Tran
 ** Last update Sat Mar 14 00:11:38 2015 David Tran
 */
@@ -15,6 +15,11 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <sys/stat.h>
+# include "error.h"
+
+# define BLOCK_SIZE     64
 
 typedef union		u_key
 {
@@ -25,7 +30,7 @@ typedef union		u_key
 
 typedef struct		s_crypt
 {
-  char			crypt;
+  char			crypted;
   int			fdin;
   int			fdout;
   t_key			key;
