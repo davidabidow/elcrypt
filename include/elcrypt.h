@@ -19,7 +19,7 @@
 # include <sys/stat.h>
 # include "error.h"
 
-# define BLOCK_SIZE     64
+# define BLOCK_SIZE     8
 
 typedef union		u_key
 {
