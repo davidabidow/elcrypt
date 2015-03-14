@@ -5,7 +5,7 @@
 ** Login   <tran_0@epitech.net>
 ** 
 ** Started on  Sat Mar 14 02:04:33 2015 David Tran
-** Last update Sat Mar 14 19:24:46 2015 David Tran
+** Last update Sat Mar 14 21:27:52 2015 David Tran
 */
 
 #include "elcrypt.h"
@@ -41,11 +41,9 @@ int			option_key(t_crypt *crypt, char *data)
   if (!data || strlen(data) < 2 || crypt->key.key != 0)
     return (EXIT_FAILURE);
   crypt->key.key = strtoul(&data[2], NULL, strlen(data) - 2);
-  printf("%llx\n", (unsigned long long)crypt->key.key);
   i = 0;
   while (i < 64)
     {
-      printf("---------->%d\n", crypt->key.key >> 63);
       if (crypt->key.key >> 63 == 1 && i % 8 != 7)
 	{
 	  tmp |= 1;
@@ -55,11 +53,9 @@ int			option_key(t_crypt *crypt, char *data)
       else if (crypt->key.key >> 63 == 0 && i % 8 != 7)
 	tmp <<= 1;
       crypt->key.key <<= 1;
-      printf("%llu, %d\n", tmp, i);
       i++;
     }
   crypt->key.key = tmp;
-  printf("%llx\n", (unsigned long long)tmp);
   return (EXIT_SUCCESS);
 }
 

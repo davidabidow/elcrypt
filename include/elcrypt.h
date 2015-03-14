@@ -5,7 +5,7 @@
 ** Login   <tran_0@epitech.net>
 **
 ** Started on  Fri Mar 13 21:05:54 2015 David Tran
-** Last update Sat Mar 14 15:45:03 2015 David Tran
+** Last update Sat Mar 14 22:51:38 2015 David Tran
 */
 
 #ifndef ELCRYPT_H_
@@ -36,6 +36,7 @@ typedef struct		s_crypt
   int			fdout;
   t_key			key;
   t_key			tmp;
+  t_key			second;
   int			(*funcs[5])(struct s_crypt *, char *);
   char			option[5];
 }			t_crypt;

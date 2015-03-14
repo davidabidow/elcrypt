@@ -5,10 +5,19 @@
 ** Login   <guiz@epitech.net>
 **
 ** Started on  Fri Mar  11 23:43:34 2015 Guillaume Briard
-** Last update Sat Mar 14 18:23:47 2015 David Tran
+** Last update Sat Mar 14 18:37:31 2015 David Tran
 */
 
 #include "elcrypt.h"
+
+void		fill_key(t_crypt *crypt, int beg, int pad)
+{
+  while (beg < 8)
+    {
+      crypt->tmp.c_key[beg] = pad;
+      beg++;
+    }
+}
 
 int             get_block(t_crypt *crypt)
 {
@@ -22,7 +31,7 @@ int             get_block(t_crypt *crypt)
       if (rd < BLOCK_SIZE)
         {
           pad = BLOCK_SIZE - rd;
-          &crypt->tmp.key = memset(&crypt->tmp.c_key[7 - pad], pad, pad);
+	  fill_key(crypt, 7 - pad, pad);
           if (write(crypt->fdout, &crypt->tmp.c_key[7 - pad], pad) == -1)
             return (EXIT_FAILURE);
         }
@@ -33,7 +42,7 @@ int             get_block(t_crypt *crypt)
     }
   if ((size % BLOCK_SIZE) == 0)
     {
-      &crypt->tmp.key = memset(&crypt->tmp.c_key[0], 8, BLOCK_SIZE);
+      fill_key(crypt, 8, BLOCK_SIZE);
       if (write(crypt->fdout, &crypt->tmp.c_key[0], BLOCK_SIZE) == -1)
         return (EXIT_FAILURE);
     }

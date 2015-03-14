@@ -5,7 +5,7 @@
 ** Login   <tran_0@epitech.net>
 ** 
 ** Started on  Fri Mar 13 21:04:57 2015 David Tran
-** Last update Sat Mar 14 15:45:38 2015 David Tran
+** Last update Sat Mar 14 22:57:11 2015 David Tran
 */
 
 #include "elcrypt.h"
@@ -15,6 +15,7 @@ int		check_filled(t_crypt *crypt)
   if (crypt->crypted == -1 || crypt->key.key == 0 ||
       crypt->fdin == 0 || crypt->fdout == 0)
     return (-1);
+  get_block(crypt);
   return (EXIT_SUCCESS);
 }
 

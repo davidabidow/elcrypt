@@ -5,7 +5,7 @@
 ## Login   <tran_0@epitech.net>
 ## 
 ## Started on  Fri Mar 13 21:01:30 2015 David Tran
-## Last update Sat Mar 14 16:48:12 2015 David Tran
+## Last update Sat Mar 14 22:54:59 2015 David Tran
 ##
 
 CC=	gcc
@@ -15,6 +15,8 @@ SRCS=	src/main.c		\
 	src/options.c		\
 	src/Feistel.c		\
 	src/block_generator.c	\
+	src/encrypt.c		\
+	src/decrypt.c		\
 
 OBJS=	$(SRCS:.c=.o)
 
