@@ -5,7 +5,7 @@
 ** Login   <tran_0@epitech.net>
 **
 ** Started on  Fri Mar 13 21:05:54 2015 David Tran
-** Last update Sat Mar 14 22:51:38 2015 David Tran
+** Last update Sun Mar 15 00:08:40 2015 David Tran
 */
 
 #ifndef ELCRYPT_H_
@@ -46,5 +46,10 @@ int			option_fileout(t_crypt *, char *);
 int			option_decryp(t_crypt *, char *);
 int			option_key(t_crypt *, char *);
 int			option_cryp(t_crypt *, char *);
+void			get_block(t_crypt *);
+int			call_option(int, char **, t_crypt *);
+void			encrypt(t_crypt *, int);
+void			decrypt(t_crypt *, int);
+void			make_turns(t_crypt *);
 
 #endif /* !ELCRYPT_H_ */
