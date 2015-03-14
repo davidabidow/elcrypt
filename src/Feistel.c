@@ -5,8 +5,10 @@
 ** Login   <tran_0@epitech.net>
 ** 
 ** Started on  Fri Mar 13 23:11:08 2015 David Tran
-** Last update Fri Mar 13 23:53:56 2015 David Tran
+** Last update Sat Mar 14 15:47:00 2015 David Tran
 */
+
+#include "elcrypt.h"
 
 int	rotate_key(int to_rot)
 {
@@ -15,9 +17,6 @@ int	rotate_key(int to_rot)
 
 int	build_key(t_crypt *crypt, int i)
 {
-  int	i;
-
-  i = 0;
 }
 
 void	make_turns(t_crypt *crypt)

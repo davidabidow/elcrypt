@@ -5,18 +5,30 @@
 ** Login   <tran_0@epitech.net>
 ** 
 ** Started on  Fri Mar 13 21:04:57 2015 David Tran
-** Last update Sat Mar 14 00:17:23 2015 David Tran
+** Last update Sat Mar 14 15:45:38 2015 David Tran
 */
 
 #include "elcrypt.h"
 
-int	main(int ac, char **av __attribute__((unused)))
+int		check_filled(t_crypt *crypt)
 {
+  if (crypt->crypted == -1 || crypt->key.key == 0 ||
+      crypt->fdin == 0 || crypt->fdout == 0)
+    return (-1);
+  return (EXIT_SUCCESS);
+}
+
+int		main(int ac, char **av)
+{
+  t_crypt	crypt;
+
   if (ac != 8)
-    {
-      printf("USAGE : %s [-d / -e] -f [infile] -o [fileout] -k [key]\n");
-      return (EXIT_FAILURE);
-    }
-  
+    return (ERROR(USAGE));
+  crypt.crypted = -1;
+  crypt.key.key = 0;
+  crypt.fdin = 0;
+  crypt.fdout = 0;
+  if (call_option(ac, av, &crypt) < 0 || check_filled(&crypt) == -1)
+    return (ERROR(USAGE));
   return (EXIT_SUCCESS);
 }

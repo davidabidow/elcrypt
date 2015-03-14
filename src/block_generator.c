@@ -5,15 +5,15 @@
 ** Login   <guiz@epitech.net>
 **
 ** Started on  Fri Mar  11 23:43:34 2015 Guillaume Briard
-** Last update Sat Mar  12 00:10:10 2015 Guillaume Briard
+** Last update Sat Mar 14 15:47:37 2015 David Tran
 */
 
 #include "elcrypt.h"
 
 t_crypt         *get_block(t_crypt *crypt)
 {
-  if ()
+  /*  if ()
     return (NULL);
   if (write(crypt->fdin, ))
-  return (crypt);
+  return (crypt);*/
 }
