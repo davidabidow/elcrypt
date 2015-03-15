@@ -5,7 +5,7 @@
 ** Login   <guiz@epitech.net>
 **
 ** Started on  Fri Mar  11 23:43:34 2015 Guillaume Briard
-** Last update Sat Mar 14 16:32:07 2015 David Tran
+** Last update Sun Mar 15 01:29:42 2015 David Tran
 */
 
 #include "elcrypt.h"
@@ -34,7 +34,6 @@ int	call_option(int ac, char **av, t_crypt *crypt)
   fill_tab(crypt);
   while (i < ac)
     {
-      printf("%d, %s\n", i, av[i]);
       j = 0;
       if (strlen(av[i]) != 2)
 	return (-1);
