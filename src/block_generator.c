@@ -5,7 +5,7 @@
 ** Login   <guiz@epitech.net>
 **
 ** Started on  Fri Mar  11 23:43:34 2015 Guillaume Briard
-** Last update Sun Mar 15 00:24:11 2015 David Tran
+** Last update Sun Mar 15 06:08:13 2015 David Tran
 */
 
 #include "elcrypt.h"

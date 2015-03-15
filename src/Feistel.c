@@ -5,7 +5,7 @@
 ** Login   <tran_0@epitech.net>
 **
 ** Started on  Fri Mar 13 23:11:08 2015 David Tran
-** Last update Sun Mar 15 04:19:54 2015 David Tran
+** Last update Sun Mar 15 08:37:48 2015 David Tran
 */
 
 #include "elcrypt.h"
@@ -33,19 +33,31 @@ int                     rotate_key(t_crypt *crypt, int tour)
         }
       c1++;
     }
+  crypt->second.key <<= 32;
+  crypt->second.key >>= 32;
   return (EXIT_SUCCESS);
 }
 
-void	make_turns(t_crypt *crypt)
+void		make_turns(t_crypt *crypt)
 {
-  int	i;
+  int		i;
+  unsigned int	nb1;
+  unsigned int	nb2;
 
   i = 0;
+  nb1 = crypt->tmp.key >> 32;
+  nb2 = crypt->tmp.key << 32 >> 32;
   while (i < 8)
     {
+      //      printf("%llu\n", crypt->second.key);
       rotate_key(crypt, (crypt->crypted == 1) ? 7 - i : i);
-      (crypt->crypted == 1) ? decrypt(crypt, i) : encrypt(crypt, i);
+      (crypt->crypted == 1) ? decrypt(crypt, i, &nb1, &nb2) :
+	encrypt(crypt, i, &nb1, &nb2);
       // Feistel
       i++;
     }
+  crypt->tmp.key = 0;
+  crypt->tmp.key += nb1;
+  crypt->tmp.key <<= 32;
+  crypt->tmp.key |= nb2;
 }
